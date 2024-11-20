@@ -1,0 +1,129 @@
+<!DOCTYPE html> <!-- กำหนดเอกสารนี้เป็น HTML5 -->
+<html lang="en"> <!-- กำหนดภาษาเป็นภาษาอังกฤษ -->
+<head>
+    <meta charset="UTF-8"> <!-- กำหนดการเข้ารหัสตัวอักษรเป็น UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- กำหนดการแสดงผลสำหรับอุปกรณ์เคลื่อนที่ -->
+    <link rel="icon" href="img/RIE_ICON.png" type="image/png">
+    <title>SolarPredict</title> <!-- กำหนดชื่อของหน้าเว็บที่จะแสดงในแท็บของเบราว์เซอร์ -->
+    <link rel="stylesheet" href="styles.css"> <!-- เชื่อมโยงไฟล์ CSS สำหรับการตกแต่งหน้าเว็บ -->
+    <link rel="stylesheet" href="monitoring.css">
+</head>
+<header id="navbar"> <!-- ส่วนหัวของหน้าเว็บที่มี ID เป็น navbar -->
+    <div class="logo"> <!-- ส่วนที่แสดงโลโก้ -->
+        <img onclick="goToPage('home.html')" src="img/RIE.jpeg" alt="logo"> <!-- โลโก้ที่สามารถคลิกเพื่อไปยังหน้า home.html -->
+        <p onclick="goToPage('home.html')">SolarPredict</p> <!-- ชื่อเว็บไซต์ที่สามารถคลิกเพื่อนำไปยังหน้า home.html -->
+    </div>
+    <nav> <!-- ส่วนของการนำทาง -->
+        <ul> <!-- รายการเมนูการนำทาง -->
+            <li><a onclick="goToPage('home.html')">Home</a></li> <!-- ลิงก์ไปยังหน้า Home -->
+            <li><a onclick="goToPage('about.html')">About</a></li> <!-- ลิงก์ไปยังหน้า About -->
+            <li><a onclick="goToPage('monitoring.html')">Monitoring</a></li> <!-- ลิงก์ไปยังหน้า Monitoring -->
+            <li><a onclick="goToPage('contact.html')">Contact</a></li> <!-- ลิงก์ไปยังหน้า Contact -->
+            <li><a onclick="goToPage('feedback.html')" class="fb">Feedback</a></li> <!-- ลิงก์ไปยังหน้า Feedback -->
+        </ul>
+    </nav>
+</header>
+<body> <!-- เริ่มต้นส่วนของเนื้อหาในร่างกาย -->
+    <div id="content"> <!-- กล่องเนื้อหาหลัก -->
+        <h2>Latest Sensor Data</h2> <!-- หัวข้อสำหรับข้อมูลเซ็นเซอร์ล่าสุด -->
+        <div id="sensorData"> <!-- กล่องสำหรับแสดงข้อมูลเซ็นเซอร์ -->
+            <div class="data" id="time">Time: --:--:--</div> <!-- แสดงเวลาเริ่มต้น -->
+            <div class="data" id="temperature">Temperature: 0.0 °C</div> <!-- แสดงอุณหภูมิเริ่มต้น -->
+            <div class="data" id="humidity">Humidity: 0.0 %</div> <!-- แสดงความชื้นเริ่มต้น -->
+            <div class="data" id="irradiance">Irradiance: 0.0 W/m²</div> <!-- แสดงการฉายแสงเริ่มต้น -->
+            <div class="data" id="voltage">Voltage: 0.0 V</div> <!-- แสดงแรงดันเริ่มต้น -->
+            <div class="data" id="current">Current: 0.0 A</div> <!-- แสดงกระแสเริ่มต้น -->
+            <div class="data" id="power">Power: 0.0 W</div> <!-- แสดงพลังงานเริ่มต้น -->
+        </div>
+
+        <!-- Chart Sections -->
+        <h2>Sensor Data Charts</h2> <!-- หัวข้อสำหรับกราฟข้อมูลเซ็นเซอร์ -->
+        <div id="chartContainer"> <!-- กล่องสำหรับแสดงกราฟ -->
+            <canvas id="temperatureChart"></canvas> <!-- พื้นที่สำหรับกราฟอุณหภูมิ -->
+            <canvas id="humidityChart"></canvas> <!-- พื้นที่สำหรับกราฟความชื้น -->
+            <canvas id="irradianceChart"></canvas> <!-- พื้นที่สำหรับกราฟการฉายแสง -->
+        </div>
+        <div id="chartContainer"> <!-- กล่องเพิ่มเติมสำหรับกราฟ -->
+            <canvas id="voltageChart"></canvas> <!-- พื้นที่สำหรับกราฟแรงดัน -->
+            <canvas id="currentChart"></canvas> <!-- พื้นที่สำหรับกราฟกระแส -->
+            <canvas id="powerChart"></canvas> <!-- พื้นที่สำหรับกราฟพลังงาน -->
+        </div>
+
+        <!-- Table Section -->
+        <h2>Table</h2> <!-- หัวข้อสำหรับตาราง -->
+        <table id="sensorTable"> <!-- เริ่มต้นตารางสำหรับแสดงข้อมูลเซ็นเซอร์ -->
+            <thead> <!-- ส่วนหัวของตาราง -->
+                <tr>
+                    <th>Time</th> <!-- หัวข้อคอลัมน์สำหรับเวลา -->
+                    <th>Temperature (°C)</th> <!-- หัวข้อคอลัมน์สำหรับอุณหภูมิ -->
+                    <th>Humidity (%)</th> <!-- หัวข้อคอลัมน์สำหรับความชื้น -->
+                    <th>Irradiance (W/m²)</th> <!-- หัวข้อคอลัมน์สำหรับการฉายแสง -->
+                    <th>Voltage (V)</th> <!-- หัวข้อคอลัมน์สำหรับแรงดัน -->
+                    <th>Current (A)</th> <!-- หัวข้อคอลัมน์สำหรับกระแส -->
+                    <th>Power (W)</th> <!-- หัวข้อคอลัมน์สำหรับพลังงาน -->
+                    <th>ID</th> <!-- หัวข้อคอลัมน์สำหรับ ID -->
+                </tr>
+            </thead>
+            <tbody> <!-- ส่วนเนื้อหาของตาราง -->
+                <!-- Data will be populated here --> <!-- ข้อมูลจะถูกเติมที่นี่ -->
+            </tbody>
+        </table>
+    </div>
+    
+    <footer> <!-- เริ่มต้นส่วนท้ายของหน้าเว็บ -->
+        <div class="footer-column"> <!-- คอลัมน์แรกในส่วนท้าย -->
+            <h3>Products</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการผลิตภัณฑ์ -->
+                <li><a href="#">Solargis Prospect</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Prospect -->
+                <li><a href="#">Solargis Evaluate</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Evaluate -->
+                <li><a href="#">Solargis Monitor</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Monitor -->
+                <li><a href="#">Solargis Forecast</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Forecast -->
+                <li><a href="#">Solargis Analyst</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Analyst -->
+                <li><a href="#">Solargis Integrations</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Integrations -->
+            </ul>
+        </div>
+        <div class="footer-column"> <!-- คอลัมน์ที่สองในส่วนท้าย -->
+            <h3>Services</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการบริการ -->
+                <li><a href="#">Solar Resource & Meteo Assessment</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+                <li><a href="#">Site Adaptation of Solargis Models</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+                <li><a href="#">Quality Control of Solar & Meteo Measurements</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+                <li><a href="#">Customized GIS Data</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+                <li><a href="#">PV Energy Yield Assessment</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+            </ul>
+        </div>
+        <div class="footer-column"> <!-- คอลัมน์ที่สามในส่วนท้าย -->
+            <h3>Use cases</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการกรณีการใช้งาน -->
+                <li><a href="#">Site selection</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+                <li><a href="#">Energy yield simulation</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+                <li><a href="#">Power plant design</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+                <li><a href="#">Power output forecast</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+                <li><a href="#">Ground data verification</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+            </ul>
+        </div>
+        <div class="footer-column"> <!-- คอลัมน์ที่สี่ในส่วนท้าย -->
+            <h3>Resources</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการทรัพยากร -->
+                <li><a href="#">Blog</a></li> <!-- ลิงก์ไปยังบล็อก -->
+                <li><a href="#">Webinars</a></li> <!-- ลิงก์ไปยังเว็บบินาร์ -->
+                <li><a href="#">Publications</a></li> <!-- ลิงก์ไปยังเอกสารเผยแพร่ -->
+                <li><a href="#">Events</a></li> <!-- ลิงก์ไปยังกิจกรรม -->
+            </ul>
+        </div>
+        <div class="footer-column"> <!-- คอลัมน์ที่ห้าในส่วนท้าย -->
+            <h3>About</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการเกี่ยวกับ -->
+                <li><a href="#">About Solargis</a></li> <!-- ลิงก์ไปยังข้อมูลเกี่ยวกับ Solargis -->
+                <li><a href="#">Partners</a></li> <!-- ลิงก์ไปยังข้อมูลเกี่ยวกับพันธมิตร -->
+                <li><a href="#">Careers</a></li> <!-- ลิงก์ไปยังข้อมูลเกี่ยวกับอาชีพ -->
+                <li><a href="#">ISO certification</a></li> <!-- ลิงก์ไปยังข้อมูลเกี่ยวกับการรับรอง ISO -->
+            </ul>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for updating time and charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- เชื่อมโยงไฟล์ Chart.js สำหรับสร้างกราฟ -->
+    <script src="scripts.js"></script> <!-- เชื่อมโยงไฟล์ JavaScript ที่มีฟังก์ชันเพิ่มเติม -->
+</body>
+</html>

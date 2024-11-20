@@ -1,0 +1,185 @@
+/* Reset and Base Styles */
+* { /* เลือกทุก element */
+    margin: 0; /* ตั้งค่าระยะห่างรอบนอก (margin) เป็น 0 */
+    padding: 0; /* ตั้งค่าระยะห่างภายใน (padding) เป็น 0 */
+    box-sizing: border-box; /* รวม border และ padding เข้าไปในขนาดของ element */
+}
+body {
+    font-family: Arial, sans-serif; /* ตั้งค่า font เป็น Arial หากไม่มี ให้ใช้ sans-serif */
+    color: #333; /* ตั้งค่าสีตัวอักษรเป็นสีเทาเข้ม */
+    background-color: #f5f5f5; /* ตั้งค่าสีพื้นหลังเป็นสีเทาอ่อน */
+}
+
+/* Header Styling */
+header {
+    display: flex; /* จัด layout ให้ element ภายใน header เป็น flexbox */
+    justify-content: space-between; /* กระจายพื้นที่ระหว่าง child elements ในแนวนอน */
+    align-items: center; /* จัดตำแหน่ง element ทั้งหมดให้อยู่กึ่งกลางในแนวตั้ง */
+    padding: 15px 30px; /* ระยะห่างภายในด้านบนและล่าง 15px, ซ้ายและขวา 30px */
+    background-color: #222; /* สีพื้นหลังของ header เป็นสีดำเข้ม */
+    border-bottom: 1px solid #ddd; /* เส้นขอบด้านล่างของ header */
+    color: #fff; /* สีตัวอักษรเป็นสีขาว */
+    position: relative; /* ตำแหน่ง relative สำหรับใช้งานการเลื่อน sticky */
+    transition: all 0.3s ease; /* ตั้งค่า transition เวลามีการเปลี่ยนแปลง 0.3 วินาที */
+    z-index: 1000; /* กำหนดลำดับชั้นเพื่อให้อยู่ด้านหน้าของ element อื่นๆ */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* เงาของ header */
+}
+header.sticky {
+    position: fixed; /* ตำแหน่ง fixed เพื่อให้ header ติดอยู่ด้านบน */
+    top: 0; /* ตำแหน่งที่ด้านบนสุด */
+    width: 100%; /* ความกว้างเต็มหน้าจอ */
+    animation: slideDown 0.5s ease forwards; /* ใช้ animation slideDown */
+    background-color: rgba(34, 34, 34, 0.9); /* สีพื้นหลังแบบโปร่งใส */
+}
+
+@keyframes slideDown { /* การสร้าง keyframe สำหรับ slideDown */
+    from {
+        opacity: 0; /* เริ่มจากความโปร่งใส */
+        transform: translateY(-100%); /* เริ่มจากตำแหน่งนอกจอด้านบน */
+    }
+    to {
+        opacity: 1; /* สิ้นสุดที่โปร่งใส */
+        transform: translateY(0); /* กลับมาที่ตำแหน่งเดิม */
+    }
+}
+
+/* Navigation Styles */
+.logo {
+    display: flex; /* ใช้ flex layout */
+    align-items: center; /* จัดให้อยู่กึ่งกลาง */
+    font-size: 24px; /* ขนาด font ของโลโก้ */
+    font-weight: bold; /* ตัวอักษรหนา */
+    cursor: pointer; /* เปลี่ยน cursor เมื่อชี้ */
+}
+.logo img {
+    width: 40px; /* กำหนดความกว้างภาพโลโก้ */
+    margin-right: 10px; /* ระยะห่างด้านขวา */
+    border-radius: 50%; /* ทำภาพให้เป็นวงกลม */
+}
+/* ตกแต่งลิงก์ใน nav */
+nav ul li a {
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 16px;
+    transition: transform 0.3s ease, color 0.3s ease; /* เพิ่มเอฟเฟกต์การเลื่อนและเปลี่ยนสี */
+    cursor: pointer;
+}
+
+nav ul li a:hover {
+    color: #007BFF; /* เปลี่ยนสีข้อความเมื่อ hover */
+    transform: translateY(5px); /* เลื่อนข้อความลง */
+}
+
+/* ตกแต่ง ul และ li */
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+nav ul li a:hover,
+.fb {
+    background-color: #E35205; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    color: #fff; /* สีตัวอักษรขาว */
+    transform: translateY(2px);
+}
+
+/* ---------FOOTER-------- */
+footer {
+    background-color: #222; /* กำหนดสีพื้นหลังของฟุตเตอร์เป็นสีดำเข้ม */
+    padding: 40px; /* กำหนดระยะห่างภายในเป็น 40px */
+    border-top: 1px solid #ddd; /* สร้างเส้นแบ่งด้านบนเป็นสีเทาอ่อน */
+    display: flex; /* ใช้ Flexbox สำหรับการจัดเรียงองค์ประกอบภายใน */
+    justify-content: center; /* จัดตำแหน่งให้อยู่กลางในแนวนอน */
+    align-items: flex-start; /* จัดตำแหน่งให้เริ่มที่ด้านบนในแนวตั้ง */
+    gap: 40px; /* กำหนดระยะห่างระหว่างคอลัมน์ */
+    flex-wrap: wrap; /* อนุญาตให้คอลัมน์ถูกห่อหุ้มในบรรทัดใหม่เมื่อไม่มีที่ว่าง */
+}
+
+.footer-column {
+    flex: 1 1 150px; /* อนุญาตให้คอลัมน์มีความกว้างขั้นต่ำ 150px และจะขยายได้ตามที่มีพื้นที่ */
+    max-width: 200px; /* กำหนดความกว้างสูงสุดที่ 200px */
+}
+
+.footer-column h3 {
+    font-size: 1.2em; /* กำหนดขนาดตัวอักษรเป็น 1.2 เท่าของขนาดมาตรฐาน */
+    color: #333; /* กำหนดสีตัวอักษรเป็นสีเทาเข้ม */
+    margin-bottom: 15px; /* กำหนดระยะห่างด้านล่างเป็น 15px */
+    font-weight: bold; /* กำหนดความหนาของตัวอักษรให้หนา */
+}
+
+.footer-column ul {
+    list-style: none; /* ยกเลิกจุดหรือลักษณะของรายการ */
+}
+
+.footer-column ul li {
+    margin-bottom: 10px; /* กำหนดระยะห่างด้านล่างสำหรับแต่ละรายการเป็น 10px */
+}
+
+.footer-column ul li a {
+    text-decoration: none; /* ยกเลิกการขีดเส้นใต้ของลิงก์ */
+    color: #666; /* กำหนดสีตัวอักษรของลิงก์เป็นสีเทาเข้ม */
+    font-size: 0.9em; /* กำหนดขนาดตัวอักษรเป็น 0.9 เท่าของขนาดมาตรฐาน */
+    display: block; /* แสดงลิงก์เป็นบล็อกเพื่อให้สามารถกำหนดขนาดได้ */
+}
+
+.footer-column ul li a:hover {
+    color: #333; /* เปลี่ยนสีตัวอักษรของลิงก์เป็นสีเทาเข้มเมื่อโฮเวอร์ */
+}
+
+.footer-bottom {
+    text-align: center; /* จัดตำแหน่งข้อความให้อยู่กลาง */
+    padding: 20px 0; /* กำหนดระยะห่างภายในเป็น 20px ด้านบนและล่าง */
+    background-color: #f5f5f5; /* กำหนดสีพื้นหลังเป็นสีเทาอ่อน */
+    font-size: 0.8em; /* กำหนดขนาดตัวอักษรเป็น 0.8 เท่าของขนาดมาตรฐาน */
+    color: #999; /* กำหนดสีตัวอักษรเป็นสีเทา */
+    width: 100%; /* กำหนดความกว้างเป็น 100% */
+    border-top: 1px solid #ddd; /* สร้างเส้นแบ่งด้านบนเป็นสีเทาอ่อน */
+}
+
+/* ----------scrollbar---------- */
+::-webkit-scrollbar {
+    width: 15px; /* กำหนดความกว้างของ scrollbar เป็น 15px */
+}
+
+::-webkit-scrollbar-track {
+    background: #d1e5ff; /* กำหนดสีพื้นหลังของ scrollbar track เป็นสีฟ้าอ่อน */
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#666, #558fda); /* กำหนดสีของ scrollbar thumb เป็นกราเดียนต์จากเทาเข้มไปฟ้า */
+}
+
+.university {
+    display: flex; /* จัด layout ภายในเป็น flex */
+    align-items: center; /* จัดให้อยู่กึ่งกลาง */
+    justify-content: space-between; /* จัดระยะห่างระหว่าง elements */
+    background: #f3f3f3; /* ภาพพื้นหลัง */
+    background-size: cover; /* ให้ภาพเต็มจอ */
+    padding: 4rem 2rem; /* ระยะห่างภายใน */
+    height: 80vh; /* สูงเต็มหน้าจอ */
+    color: #333; /* สีตัวอักษร */
+    position: relative; /* ตำแหน่ง relative */
+    overflow: hidden; /* ซ่อนส่วนเกิน */
+    box-shadow: 20px 0px 64px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
+
+.university img {
+    width: 450px;
+    height: auto;
+}
+
+.university h1 {
+    font-size: 200px;
+    text-align: center;
+    justify-content: center;
+}

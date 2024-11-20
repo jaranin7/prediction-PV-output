@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- กำหนดเอกสารนี้เป็น HTML5 และระบุว่าใช้ภาษาอังกฤษ -->
+<head>
+    <meta charset="UTF-8"> <!-- กำหนดการเข้ารหัสตัวอักษรเป็น UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- กำหนดการแสดงผลบนอุปกรณ์เคลื่อนที่ -->
+    <link rel="icon" href="img/RIE_ICON.png" type="image/png">
+    <title>SolarPredict</title> <!-- กำหนดชื่อของหน้าเว็บที่จะแสดงในแท็บของเบราว์เซอร์ -->
+    <link rel="stylesheet" href="styles.css"> <!-- เชื่อมโยงไฟล์ CSS สำหรับการตกแต่งหน้าเว็บ -->
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header id="navbar"> <!-- ส่วนหัวของหน้าเว็บที่มี ID เป็น navbar -->
+        <div class="logo"> <!-- ส่วนที่แสดงโลโก้ -->
+            <img onclick="goToPage('home.html')" src="img/RIE.jpeg" alt="logo"> <!-- โลโก้ที่มีการคลิกเพื่อนำไปยังหน้า home.html -->
+            <p onclick="goToPage('home.html')">SolarPredict</p> <!-- ชื่อของเว็บไซต์ที่มีการคลิกเพื่อนำไปยังหน้า home.html -->
+        </div>
+        <nav> <!-- ส่วนของการนำทาง -->
+            <ul> <!-- รายการเมนูการนำทาง -->
+                <li><a onclick="goToPage('home.html')">Home</a></li> <!-- ลิงก์ไปยังหน้า Home -->
+                <li><a onclick="goToPage('about.html')">About</a></li> <!-- ลิงก์ไปยังหน้า About -->
+                <li><a onclick="goToPage('monitoring.html')">Monitoring</a></li> <!-- ลิงก์ไปยังหน้า Monitoring -->
+                <li><a onclick="goToPage('contact.html')">Contact</a></li> <!-- ลิงก์ไปยังหน้า Contact -->
+                <li><a onclick="goToPage('feedback.html')" class="fb">Feedback</a></li> <!-- ลิงก์ไปยังหน้า Feedback -->
+            </ul>
+        </nav>
+    </header>
+    <section class="hero"> <!-- ส่วนที่มีภาพพื้นหลังหรือข้อความสำคัญ -->
+        <div class="hero-text"> <!-- กล่องข้อความสำหรับ Hero Section -->
+            <h1>Prediction</h1> <!-- หัวข้อหลักใน Hero Section -->
+            <p>The project employs the TFT model to forecast solar power output, enhancing accuracy and stability in renewable energy.</p> <!-- ข้อความย่อยที่อธิบายผลิตภัณฑ์ -->
+            <a onclick="goToPage('about.html')" class="explore-btn">Learn More</a> <!-- ปุ่มที่คลิกเพื่อนำไปยังหน้า About -->
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="about-text">
+            <h1>Intro</h1>
+            <p>
+                โครงการนี้ใช้โมเดล Temporal Fusion Transformer (TFT) ในการพยากรณ์กำลังไฟฟ้าจากโซล่าเซลล์ ซึ่งเป็นพลังงานสะอาดที่มีความสำคัญต่อการพัฒนาที่ยั่งยืน แต่การผลิตขึ้นอยู่กับหลายปัจจัย เช่น สภาพอากาศ TFT สามารถวิเคราะห์ข้อมูลจากหลายแหล่ง ทำให้พยากรณ์แม่นยำขึ้น ลดความเสี่ยงการลงทุน และสนับสนุนการใช้พลังงานหมุนเวียนอย่างมั่นคงในอนาคต</p>
+        </div>
+        <div class="about-img">
+            <img src="img/solar-panel-1024x614 .png" alt="Trulli" width="auto" height="auto">
+        </div>
+    </section>
+    <section class="objective" id="objective">
+        <div class="objective-img">
+            <img src="img/Dongang_Machine Learning_Theme Image-min_1 (1).jpeg" alt="Trulli">
+        </div>
+        <div class="objective-text">
+            <h1>Objective</h1>
+            <p>1.เพื่อการเก็บข้อมูลกำลังการผลิตกำลังไฟฟ้าในแต่ละรายวัน</p>
+            <p>2.เพื่อแสดงผลการพยากรณ์กำลังไฟฟ้าจากโซลาเซลล์</p>
+            <p>3.เพื่อสร้างแบบจำลองการพยากรณ์กำลังไฟฟ้าที่ได้จากพลังงานจากโซลาเซลล์</p>
+            <p>4.เพื่อเปรียบค่าจริงและค่าพยากรณ์ของกำลังไฟฟ้าที่ผลิตได้</p>
+        </div>
+    </section>      
+    <section class="scope" id="scope">
+        <div class="scope-text">
+            <h1>Scope</h1>
+            <p>1.ระบบเซลล์แสงอาทิตย์ 1.5 kWp</p>
+            <p>2.ใช้เซ็นเซอร์ในการจัดเก็บข้อมูลเป็นรายนาที</p>
+            <p>3.ใช้แบบจำลอง Temporal Fusion Transformer ในการพยากรณ์</p>
+            <p>4.มีการแสดงผลค่าพยากรณ์บนหน้าจอคอมพิวเตอร์ผ่านเว็ปแอพพลิเคชั่น</p>
+            <p>5.มีการแสดงผลค่าพยากรณ์ในรายชั่วโมง</p>
+            <p>6.แบบจำลองสามารถพยากรณ์ในรายชั่วโมง โดยมีความแม่นยำมากกว่า 80% เมื่อเทียบกับค่าวัดจริง</p>
+        </div>
+        <div class="scope-img">
+            <img src="img/renewable-energy.jpg" alt="Trulli" width="auto" height="auto">
+        </div>
+    </section>
+    <footer> <!-- ส่วนท้ายของหน้าเว็บ -->
+        <div class="footer-column"> <!-- คอลัมน์แรกในส่วนท้าย -->
+            <h3>Home</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการผลิตภัณฑ์ -->
+                <li><a href="#">Solargis Prospect</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Prospect -->
+                <li><a href="#">Solargis Evaluate</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Evaluate -->
+                <li><a href="#">Solargis Monitor</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Monitor -->
+                <li><a href="#">Solargis Forecast</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Forecast -->
+                <li><a href="#">Solargis Analyst</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Analyst -->
+                <li><a href="#">Solargis Integrations</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Integrations -->
+            </ul>
+        </div>
+        <div class="footer-column"> <!-- คอลัมน์ที่สองในส่วนท้าย -->
+            <h3>about</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการบริการ -->
+                <li><a href="#">Solar Resource & Meteo Assessment</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+                <li><a href="#">Site Adaptation of Solargis Models</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+                <li><a href="#">Quality Control of Solar & Meteo Measurements</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+                <li><a href="#">Customized GIS Data</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+                <li><a href="#">PV Energy Yield Assessment</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+            </ul>
+        </div>
+        <div class="footer-column"> <!-- คอลัมน์ที่สามในส่วนท้าย -->
+            <h3>Monitoring</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการกรณีการใช้งาน -->
+                <li><a href="#">Site selection</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+                <li><a href="#">Energy yield simulation</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+                <li><a href="#">Power plant design</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+                <li><a href="#">Power output forecast</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+                <li><a href="#">Ground data verification</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+            </ul>
+        </div>
+        <div class="footer-column"> <!-- คอลัมน์ที่สี่ในส่วนท้าย -->
+            <h3>contact</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการแหล่งข้อมูล -->
+                <li><a href="#">Blog</a></li> <!-- ลิงก์ไปยังบล็อก -->
+                <li><a href="#">Webinars</a></li> <!-- ลิงก์ไปยังเว็บบินาร์ -->
+                <li><a href="#">Publications</a></li> <!-- ลิงก์ไปยังเอกสารเผยแพร่ -->
+                <li><a href="#">Events</a></li> <!-- ลิงก์ไปยังกิจกรรม -->
+            </ul>
+        </div>
+        <div class="footer-column"> <!-- คอลัมน์ที่ห้าในส่วนท้าย -->
+            <h3>Feedback</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการเกี่ยวกับ -->
+                <li><a href="#">About Solargis</a></li> <!-- ลิงก์ไปยังข้อมูลเกี่ยวกับ Solargis -->
+                <li><a href="#">Partners</a></li> <!-- ลิงก์ไปยังข้อมูลเกี่ยวกับพันธมิตร -->
+                <li><a href="#">Careers</a></li> <!-- ลิงก์ไปยังข้อมูลเกี่ยวกับอาชีพ -->
+                <li><a href="#">ISO certification</a></li> <!-- ลิงก์ไปยังข้อมูลเกี่ยวกับการรับรอง ISO -->
+            </ul>
+        </div>
+    </footer>
+    <script src="scripts.js"></script> <!-- เชื่อมโยงไฟล์ JavaScript สำหรับฟังก์ชันการทำงาน -->
+</body>
+</html>

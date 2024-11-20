@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/RIE_ICON.png" type="image/png">
+    <title>SolarPredict</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <header id="navbar">
+        <div class="logo">
+            <img onclick="goToPage('home.html')" src="img/RIE.jpeg" alt="logo">
+            <p onclick="goToPage('home.html')">SolarPredict</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a onclick="goToPage('home.html')">Home</a></li>
+                <li><a onclick="goToPage('about.html')">About</a></li>
+                <li><a onclick="goToPage('monitoring.html')">Monitoring</a></li>
+                <li><a onclick="goToPage('contact.html')">Contact</a></li>
+                <li><a onclick="goToPage('feedback.html')" class="fb">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="page2">
+        <video autoplay muted loop class="background-video">
+            <source src="video/cloud-2.mp4" type="video/mp4">
+        </video>
+        <div class="page2-text">
+            <h1>Temporal Fusion Transformer</h1>
+    </section>
+
+
+    <section class="what" id="what">
+        <div class="what-text">
+            <h1>What?</h1>
+            <p>ระบบนี้เป็นระบบพยากรณ์การผลิตกำลังไฟฟ้าจากแผงโซลาร์เซลล์ โดยใช้ข้อมูลจากเซนเซอร์เพื่อช่วยในการคาดการณ์การผลิตพลังงานไฟฟ้าจากพลังงานแสงอาทิตย์</p>
+            <a class="read-more" >read more</a>
+        </div>
+        <div class="what-img">
+            <img src="img/TFT.png" alt="Trulli" width="auto" height="auto">
+        </div>
+    </section>
+
+
+    <section class="where" id="where">
+        <div class="where-img">
+            <img src="img/de403c30-2a20-4e22-be80-0d3a47509d76.jpeg" alt="Trulli">
+        </div>
+        <div class="where-text">
+            <h1>Where?</h1>
+            <p>สถาที่ที่ใช้ในการเก็บข้อมูลคืออาคารปฏิบัติการอิเล็กทรอนิกส์ โดยมีเซ็นเซอร์ที่เก็บข้อมูลดังต่อไปนี้</p>
+            <p>1.เซ็นเซอร์แสง(Max44009)</p>
+            <p>2.เซ็นเซอร์วัดอุณหภูมิ(AM2315)</p>
+            <p>3.เซ็นเซอร์แรงดันไฟฟ้าและกระแส(PZEM-017)</p>
+            <a>read more</a>
+        </div>
+    </section>  
+    
+    
+    <section class="when" id="when">
+        <div class="when-text">
+            <h1>When?</h1>
+            <p>ระบบจะเก็บข้อมูลจากเซนเซอร์ทุกๆ 5 วินาที และจัดเก็บในฐานข้อมูล MySQL ข้อมูลที่เก็บสะสม 2 วันจะถูกใช้เป็น encoder สำหรับการพยากรณ์การผลิตกำลังไฟฟ้าหนึ่งวัน โดยใช้ข้อมูลย้อนหลัง 1 เดือนในการฝึกโมเดลเพื่อเพิ่มความแม่นยำ</p>
+            <a>read more</a>
+        </div>
+        <div class="when-img">
+            <img src="img/tumblr_netnsjgjzR1stn28do1_1280.gif" alt="Trulli" width="auto" height="auto">
+        </div>
+    </section>
+
+
+    <section class="which" id="which">
+        <div class="which-img">
+            <img src="img/วงจร.png" alt="Trulli">
+        </div>
+        <div class="which-text">
+            <h1>Which?</h1>
+            <p>โปรเจกต์ใช้เซนเซอร์ DHT22, Max44009, และ PZEM-017 เพื่อเก็บข้อมูลอุณหภูมิ, ความชื้น, รังสีแสงแดด, และพลังงานจากแผงโซลาร์เซลล์ โดยใช้ ESP32 ส่งข้อมูลไปยัง MySQL ผ่าน Node-RED และ PHP สำหรับการประมวลผลและแสดงผลข้อมูลบนเว็บด้วย JavaScript โดยใช้ข้อมูล 2 วันเป็น encoder ในการพยากรณ์ 1 วันจากการเทรนข้อมูลใน 1 เดือน.</p>
+            <a>read more</a>
+        </div>
+    </section>  
+
+
+    <section class="how" id="how">
+        <div class="how-text">
+            <h1>How?</h1>
+            <p>ใช้ TFT (Temporal Fusion Transformer) ในการพยากรณ์การผลิตพลังงานจากแผงโซลาร์เซลล์ โดยการเก็บข้อมูลจากเซนเซอร์ต่าง ๆ และฝึกโมเดลด้วยข้อมูลย้อนหลัง 1 เดือนเพื่อทำนายการผลิตพลังงานในอนาคต โดยอิงจากข้อมูลที่เก็บได้จากสภาพอากาศและสภาพแวดล้อมในช่วงเวลาที่ผ่านมา.</p>
+            <a>read more</a>
+        </div>
+        <div class="how-img">
+            <img src="img/tft.gif" alt="Trulli" width="auto" height="auto">
+        </div>
+    </section>   
+    <footer> <!-- ส่วนท้ายของหน้าเว็บ -->
+        <div class="footer-column"> <!-- คอลัมน์แรกในส่วนท้าย -->
+            <h3>Home</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการผลิตภัณฑ์ -->
+                <li><a href="#">Solargis Prospect</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Prospect -->
+                <li><a href="#">Solargis Evaluate</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Evaluate -->
+                <li><a href="#">Solargis Monitor</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Monitor -->
+                <li><a href="#">Solargis Forecast</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Forecast -->
+                <li><a href="#">Solargis Analyst</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Analyst -->
+                <li><a href="#">Solargis Integrations</a></li> <!-- ลิงก์ไปยังผลิตภัณฑ์ Solargis Integrations -->
+            </ul>
+        </div>
+        <div class="footer-column"> <!-- คอลัมน์ที่สองในส่วนท้าย -->
+            <h3>about</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการบริการ -->
+                <li><a href="#">Solar Resource & Meteo Assessment</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+                <li><a href="#">Site Adaptation of Solargis Models</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+                <li><a href="#">Quality Control of Solar & Meteo Measurements</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+                <li><a href="#">Customized GIS Data</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+                <li><a href="#">PV Energy Yield Assessment</a></li> <!-- ลิงก์ไปยังบริการนี้ -->
+            </ul>
+        </div>
+        <div class="footer-column"> <!-- คอลัมน์ที่สามในส่วนท้าย -->
+            <h3>Monitoring</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการกรณีการใช้งาน -->
+                <li><a href="#">Site selection</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+                <li><a href="#">Energy yield simulation</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+                <li><a href="#">Power plant design</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+                <li><a href="#">Power output forecast</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+                <li><a href="#">Ground data verification</a></li> <!-- ลิงก์ไปยังกรณีการใช้งานนี้ -->
+            </ul>
+        </div>
+        <div class="footer-column"> <!-- คอลัมน์ที่สี่ในส่วนท้าย -->
+            <h3>contact</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการแหล่งข้อมูล -->
+                <li><a href="#">Blog</a></li> <!-- ลิงก์ไปยังบล็อก -->
+                <li><a href="#">Webinars</a></li> <!-- ลิงก์ไปยังเว็บบินาร์ -->
+                <li><a href="#">Publications</a></li> <!-- ลิงก์ไปยังเอกสารเผยแพร่ -->
+                <li><a href="#">Events</a></li> <!-- ลิงก์ไปยังกิจกรรม -->
+            </ul>
+        </div>
+        <div class="footer-column"> <!-- คอลัมน์ที่ห้าในส่วนท้าย -->
+            <h3>Feedback</h3> <!-- หัวข้อของคอลัมน์ -->
+            <ul> <!-- รายการเกี่ยวกับ -->
+                <li><a href="#">About Solargis</a></li> <!-- ลิงก์ไปยังข้อมูลเกี่ยวกับ Solargis -->
+                <li><a href="#">Partners</a></li> <!-- ลิงก์ไปยังข้อมูลเกี่ยวกับพันธมิตร -->
+                <li><a href="#">Careers</a></li> <!-- ลิงก์ไปยังข้อมูลเกี่ยวกับอาชีพ -->
+                <li><a href="#">ISO certification</a></li> <!-- ลิงก์ไปยังข้อมูลเกี่ยวกับการรับรอง ISO -->
+            </ul>
+        </div>
+    </footer>
+    
+    <script src="scripts.js"></script>
+</body>

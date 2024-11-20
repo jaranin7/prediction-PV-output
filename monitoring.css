@@ -1,0 +1,71 @@
+/* หน้า monitoring.html */
+#content {
+    max-width: 100%; /* กำหนดความกว้างสูงสุดของ #content ให้เป็น 100% ของพื้นที่แม่ */
+    margin: 0 auto; /* จัดตำแหน่งให้อยู่กลางโดยใช้ margin อัตโนมัติซ้ายและขวา */
+    padding: 30px; /* กำหนดระยะห่างภายในเป็น 30px */
+    background-color: #ffffff; /* กำหนดสีพื้นหลังเป็นสีขาว */
+    border-radius: 8px; /* กำหนดมุมให้มน 8px */
+    color: #000000; /* กำหนดสีตัวอักษรเป็นสีดำ */
+    box-shadow: 0px 4px 8px rgba(227, 82, 5, 0.5); /* สร้างเงาให้กับกล่องด้วยค่า X, Y, Blur และสีที่กำหนด */
+}
+
+h2 {
+    font-size: 28px; /* กำหนดขนาดตัวอักษรของ h2 เป็น 28px */
+    color: #333; /* กำหนดสีตัวอักษรเป็นสีเทาเข้ม */
+    margin-bottom: 20px; /* กำหนดระยะห่างด้านล่างเป็น 20px */
+}
+
+#sensorData {
+    display: grid; /* ใช้ Grid layout สำหรับการจัดเรียงภายใน #sensorData */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* กำหนดคอลัมน์ให้มีความกว้างขั้นต่ำ 150px และจะขยายได้เต็มพื้นที่ */
+    gap: 15px; /* กำหนดระยะห่างระหว่างกริดเป็น 15px */
+    text-align: center; /* จัดตำแหน่งข้อความให้อยู่กลาง */
+    font-size: 18px; /* กำหนดขนาดตัวอักษรเป็น 18px */
+    color: #555; /* กำหนดสีตัวอักษรเป็นสีเทา */
+}
+
+.data {
+    padding: 10px; /* กำหนดระยะห่างภายในของ .data เป็น 10px */
+    background-color: #fafafa; /* กำหนดสีพื้นหลังของ .data เป็นสีเทาอ่อน */
+    border-radius: 5px; /* กำหนดมุมให้มน 5px */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* สร้างเงาให้กับ .data */
+}
+
+/* Chart Container */
+#chartContainer {
+    display: grid; /* ใช้ Grid layout สำหรับการจัดเรียงภายใน #chartContainer */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* กำหนดคอลัมน์ให้มีความกว้างขั้นต่ำ 300px */
+    gap: 15px; /* กำหนดระยะห่างระหว่างกริดเป็น 15px */
+    margin: 20px 0; /* กำหนดระยะห่างด้านบนและล่างเป็น 20px */
+}
+
+canvas {
+    width: 100%; /* กำหนดความกว้างของ canvas ให้เต็มที่ */
+    height: 300px; /* กำหนดความสูงของ canvas เป็น 300px */
+    background-color: #ffffff; /* กำหนดสีพื้นหลังของ canvas เป็นสีขาว */
+    border-radius: 8px; /* กำหนดมุมให้มน 8px */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* สร้างเงาให้กับ canvas */
+}
+
+/* Table Styling */
+table {
+    width: 100%; /* กำหนดความกว้างของตารางให้เต็มที่ */
+    border-collapse: collapse; /* รวมเส้นขอบตารางให้เป็นหนึ่งเดียว */
+    background-color: #fff; /* กำหนดสีพื้นหลังของตารางเป็นสีขาว */
+    color: #333; /* กำหนดสีตัวอักษรในตารางเป็นสีเทาเข้ม */
+    margin-top: 20px; /* กำหนดระยะห่างด้านบนของตารางเป็น 20px */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* สร้างเงาให้กับตาราง */
+    border-radius: 8px; /* กำหนดมุมให้มน 8px */
+    overflow: hidden; /* ป้องกันการแสดงผลที่เกินมุมของตาราง */
+}
+
+th, td {
+    padding: 12px; /* กำหนดระยะห่างภายในของ th และ td เป็น 12px */
+    text-align: left; /* จัดตำแหน่งข้อความใน th และ td ทางซ้าย */
+    border-bottom: 1px solid #ddd; /* สร้างเส้นขอบด้านล่างเป็นสีเทาอ่อน */
+}
+
+th {
+    background-color: #333; /* กำหนดสีพื้นหลังของ th เป็นสีเทาเข้ม */
+    color: #fff; /* กำหนดสีตัวอักษรใน th เป็นสีขาว */
+}

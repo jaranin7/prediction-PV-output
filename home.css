@@ -1,0 +1,244 @@
+/* หน้า home.html */
+.hero {
+    display: flex; /* จัด layout ภายในเป็น flex */
+    align-items: center; /* จัดให้อยู่กึ่งกลาง */
+    justify-content: space-between; /* จัดระยะห่างระหว่าง elements */
+    padding: 4rem 2rem; /* ระยะห่างภายใน */
+    background: url('img/solar_1.jpeg') no-repeat center center; /* ภาพพื้นหลัง */
+    background-size: cover; /* ให้ภาพเต็มจอ */
+    height: 100vh; /* สูงเต็มหน้าจอ */
+    color: #333; /* สีตัวอักษร */
+    position: relative; /* ตำแหน่ง relative */
+    overflow: hidden; /* ซ่อนส่วนเกิน */
+}
+
+.hero::before { /* pseudo-element สำหรับการซ้อนทับ */
+    content: ""; /* กำหนดเนื้อหาของ pseudo-element ให้เป็นว่าง */
+    position: absolute; /* กำหนดตำแหน่งแบบ absolute เพื่อให้วางอยู่เหนือองค์ประกอบอื่น */
+    top: 0; /* กำหนดระยะห่างจากด้านบนเป็น 0 */
+    left: 0; /* กำหนดระยะห่างจากด้านซ้ายเป็น 0 */
+    width: 100%; /* กำหนดความกว้างเป็น 100% ขององค์ประกอบแม่ */
+    height: 100%; /* กำหนดความสูงเป็น 100% ขององค์ประกอบแม่ */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0) 70%); /* สร้างพื้นหลังเป็นกราเดียนต์จากสีขาวที่มีความทึบ 90% ไปเป็นโปร่งใส */
+    z-index: 1; /* กำหนดลำดับการซ้อนทับให้อยู่ด้านหลัง */
+}
+
+.hero-text {
+    max-width: 50%; /* จำกัดความกว้างสูงสุดที่ 50% ของพื้นที่แม่ */
+    z-index: 2; /* กำหนดลำดับการซ้อนทับให้อยู่ด้านหน้า */
+    position: relative; /* กำหนดตำแหน่งแบบ relative เพื่อให้สามารถซ้อนทับกับ pseudo-element ได้ */
+    color: #000; /* กำหนดสีตัวอักษรเป็นสีดำ */
+}
+
+.hero-text h1 {
+    font-size: 192px; /* กำหนดขนาดตัวอักษรเป็น 192px */
+    font-weight: bold; /* กำหนดความหนาของตัวอักษรให้หนา */
+    line-height: 1.2; /* กำหนดความสูงของบรรทัดเป็น 1.2 เท่าของขนาดตัวอักษร */
+    margin: 10px 0; /* กำหนดระยะห่างด้านบนและล่างเป็น 20px */
+}
+
+.hero-text p {
+    font-size: 36px; /* กำหนดขนาดตัวอักษรสำหรับพารากราฟเป็น 36px */
+    margin: 20px 0; /* กำหนดระยะห่างด้านบนและล่างเป็น 20px */
+    max-width: auto; /* ความกว้างสูงสุดที่ไม่จำกัด */
+    color: #666; /* กำหนดสีตัวอักษรเป็นสีเทาเข้ม */
+    text-indent: 3rem;
+} 
+
+.hero-text a {
+    display: block; /* แสดงลิงก์เป็นบล็อกเพื่อให้สามารถกำหนดขนาดได้ */
+    width: 133px; /* กำหนดความกว้างเป็น 90px */
+}
+
+.explore-btn {
+    padding: 10px 20px; /* กำหนดระยะห่างภายในปุ่มเป็น 10px ด้านบนและล่าง และ 20px ด้านซ้ายและขวา */
+    background-color: #000; /* กำหนดสีพื้นหลังปุ่มเป็นสีดำ */
+    color: #fff; /* กำหนดสีตัวอักษรปุ่มเป็นสีขาว */
+    text-decoration: none; /* ยกเลิกการขีดเส้นใต้ของลิงก์ */
+    border-radius: 5px; /* กำหนดมุมของปุ่มให้มน */
+    font-size: 18px; /* กำหนดขนาดตัวอักษรเป็น 18px */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นมือเมื่อชี้ไปที่ปุ่ม */
+    transition: background-color 0.3s; /* กำหนดการเปลี่ยนสีพื้นหลังเมื่อมีการโฮเวอร์ใช้เวลา 0.3 วินาที */
+}
+
+.explore-btn:hover {
+    background-color: #333; /* เปลี่ยนสีพื้นหลังเป็นสีเทาเข้มเมื่อโฮเวอร์ */
+    transform: translateY(-2px);
+}
+
+/* content home.html*/
+.about {
+    display: flex; /* จัด layout ภายในเป็น flex */
+    align-items: center; /* จัดให้อยู่กึ่งกลาง */
+    justify-content: space-between; /* จัดระยะห่างระหว่าง elements */
+    background: #f3f3f3; /* ภาพพื้นหลัง */
+    background-size: cover; /* ให้ภาพเต็มจอ */
+    padding: 4rem 2rem; /* ระยะห่างภายใน */
+    height: 80vh; /* สูงเต็มหน้าจอ */
+    color: #333; /* สีตัวอักษร */
+    position: relative; /* ตำแหน่ง relative */
+    overflow: hidden; /* ซ่อนส่วนเกิน */
+    box-shadow: 20px 0px 64px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
+
+.about-text {
+    max-width: 50%;
+    z-index: 2;
+    position: relative;
+    color: #000;
+    margin-left: 3rem;
+}
+
+.about-text h1 {
+    font-size: 128px; /* กำหนดขนาดตัวอักษรเป็น 128px */
+    font-weight: bold; /* กำหนดความหนาของตัวอักษรให้หนา */
+    line-height: 1.2; /* กำหนดความสูงของบรรทัดเป็น 1.2 เท่าของขนาดตัวอักษร */
+}
+
+.about-text p {
+    font-size: 30px; /* กำหนดขนาดตัวอักษรสำหรับพารากราฟเป็น 36px */
+    margin: 10px 0; /* กำหนดระยะห่างด้านบนและล่างเป็น 20px */
+    max-width: auto; /* ความกว้างสูงสุดที่ไม่จำกัด */
+    color: #666; /* กำหนดสีตัวอักษรเป็นสีเทาเข้ม */
+    text-indent: 5em; /* เว้นระยะห่างที่บรรทัดแรก */
+}
+
+.about-img {
+    flex: 1; /* ให้รูปภาพใช้พื้นที่ตามความเหมาะสม */
+    display: flex;
+    justify-content: center; /* จัดรูปภาพให้อยู่กึ่งกลางใน div */
+}
+
+.about-img img{
+    width: 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นที่ */
+    max-width: 120%; /* จำกัดขนาดรูปภาพ */
+    height: auto; 
+    border-radius: 8px; /* ให้ขอบมน */
+}
+
+.objective {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+    padding: 4rem 2rem;
+    height: 80vh;
+    color: #ffffff;
+    box-shadow: 0px 16px 200px rgba(194, 2, 2, 0.2); /* เพิ่มเงา */
+}
+
+.objective-img {
+    flex: 1; /* ให้รูปภาพใช้พื้นที่ตามความเหมาะสม */
+    display: flex; 
+    justify-content: center; /* จัดรูปภาพให้อยู่กึ่งกลางใน div */
+}
+
+.objective-img img {
+    width: 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นที่ */
+    max-width: 70%; /* จำกัดขนาดรูปภาพ */
+    height: auto;
+    border-radius: 20px; /* ให้ขอบมน */
+    box-shadow: 0px 4px 32px rgba(255, 255, 255, 0.2); /*เพิ่มเงา    px ที่1 คือระยะการเลื่อนของเงาในแนวนอน px ที่2 คือระยะการเลื่อนของเงาในแนวตั้ง px ที่3 คือระดับความเบลอของเงา*/
+}
+
+.objective-text {
+    flex: 2; /* ให้ข้อความใช้พื้นที่มากกว่ารูปภาพ */
+    max-width: 50%;
+    color: #ffffff;
+    margin-left: 3rem; /* ระยะห่างระหว่างรูปภาพกับข้อความ */
+}
+
+.objective-text h1 {
+    font-size: 128px; /* กำหนดขนาดตัวอักษรเป็น 128px */
+    font-weight: bold; /* กำหนดความหนาของตัวอักษรให้หนา */
+    line-height: 1.2; /* กำหนดความสูงของบรรทัดเป็น 1.2 เท่าของขนาดตัวอักษร */
+}
+
+.objective-text p {
+    font-size: 30px; /* กำหนดขนาดตัวอักษรสำหรับพารากราฟเป็น 36px */
+    margin: 20px 0; /* กำหนดระยะห่างด้านบนและล่างเป็น 20px */
+    color: #ccc;
+}
+
+.scope
+{
+    display: flex; /* จัด layout ภายในเป็น flex */
+    align-items: center; /* จัดให้อยู่กึ่งกลาง */
+    justify-content: space-between; /* จัดระยะห่างระหว่าง elements */
+    background: #f3f3f3; /* ภาพพื้นหลัง */
+    background-size: cover; /* ให้ภาพเต็มจอ */
+    padding: 4rem 2rem; /* ระยะห่างภายใน */
+    height: 80vh; /* สูงเต็มหน้าจอ */
+    color: #333; /* สีตัวอักษร */
+    position: relative; /* ตำแหน่ง relative */
+    overflow: hidden; /* ซ่อนส่วนเกิน */
+    box-shadow: 0px 16px 64px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
+
+.scope-text {
+    max-width: 50%;
+    z-index: 2;
+    position: relative;
+    color: #000;
+    margin-left: 3rem;
+}
+
+.scope-text h1 {
+    font-size: 128px; /* กำหนดขนาดตัวอักษรเป็น 128px */
+    font-weight: bold; /* กำหนดความหนาของตัวอักษรให้หนา */
+    line-height: 1.2; /* กำหนดความสูงของบรรทัดเป็น 1.2 เท่าของขนาดตัวอักษร */
+}
+
+.scope-text p {
+    font-size: 30px; /* กำหนดขนาดตัวอักษรสำหรับพารากราฟเป็น 36px */
+    margin: 10px 0; /* กำหนดระยะห่างด้านบนและล่างเป็น 20px */
+    max-width: auto; /* ความกว้างสูงสุดที่ไม่จำกัด */
+    color: #666; /* กำหนดสีตัวอักษรเป็นสีเทาเข้ม */
+}
+
+.scope-img {
+    flex: 1; /* ให้รูปภาพใช้พื้นที่ตามความเหมาะสม */
+    display: flex;
+    justify-content: center; /* จัดรูปภาพให้อยู่กึ่งกลางใน div */
+}
+
+.scope-img img{
+    width: 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นที่ */
+    max-width: 90%; /* จำกัดขนาดรูปภาพ */
+    height: auto; 
+    border-radius: 20px; /* ให้ขอบมน */
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
+
+@keyframes appear-right{
+    from{
+        opacity: 0;
+        transform: translateX(-300px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes appear-left{
+    from{
+        opacity: 0;
+        transform: translateX(300px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.about ,.scope{
+    animation: appear-right 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+ .objective{
+    animation: appear-left 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+ }
